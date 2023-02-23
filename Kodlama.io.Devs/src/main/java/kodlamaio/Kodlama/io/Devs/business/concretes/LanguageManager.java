@@ -41,6 +41,15 @@ public class LanguageManager implements LanguageService {
 	public void add(CreateLanguageRequest createLanguageRequest) throws Exception {
 		Language language = this.modelMapperService.forRequest()
 				.map(createLanguageRequest,Language.class);
+		for (Language language2 : languages) {
+			if (language2.getName().equals(createLanguageRequest.getName())) {
+				throw new Exception("Bu isimden zaten var!");
+			}
+			else if(createLanguageRequest.getName().isEmpty()) {
+				throw new Exception("İsim boş olamaz!");
+			}
+		}
+		
 		this.languageRepository.save(language);
 		
 

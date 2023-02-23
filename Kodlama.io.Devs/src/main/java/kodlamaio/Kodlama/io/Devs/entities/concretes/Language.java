@@ -29,7 +29,8 @@ public class Language {
 	@Column(name = "name")
 	private String name;
 	
-	 @OneToMany(mappedBy="language",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	 @OneToMany(mappedBy="language",
+			 fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	    List<Technology> technologies;
 
 }
