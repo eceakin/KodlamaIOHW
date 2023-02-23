@@ -6,6 +6,7 @@ import kodlamaio.Kodlama.io.Devs.business.requests.CreateLanguageRequest;
 import kodlamaio.Kodlama.io.Devs.business.requests.UpdateLanguageRequest;
 import kodlamaio.Kodlama.io.Devs.business.responses.GetAllLanguageResponses;
 import kodlamaio.Kodlama.io.Devs.business.responses.GetLanguageByIdResponse;
+import kodlamaio.Kodlama.io.Devs.entities.concretes.Language;
 
 
 
@@ -16,6 +17,8 @@ public interface LanguageService {
 	void update(UpdateLanguageRequest updateLanguageRequest);
 	GetLanguageByIdResponse getById(int id);
 	/*
+	 * Language getById(int id);
+	 */	/*
 	 * void add(Language language) throws Exception; 
 	 * 
 	 * void delete(int id); void

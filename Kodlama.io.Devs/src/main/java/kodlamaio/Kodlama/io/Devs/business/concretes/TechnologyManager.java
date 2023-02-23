@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kodlamaio.Kodlama.io.Devs.business.abstratcs.LanguageService;
 import kodlamaio.Kodlama.io.Devs.business.abstratcs.TechnologyService;
 import kodlamaio.Kodlama.io.Devs.business.requests.CreateTechnologyRequest;
 import kodlamaio.Kodlama.io.Devs.business.requests.UpdateTechnologyRequest;
@@ -21,6 +22,7 @@ public class TechnologyManager implements TechnologyService {
 	List<Technology> technologies;
 	private TechnologyRepository technologyRepository;
 	private ModelMapperService modelMapperService;
+	private LanguageService languageService;
 
 	@Override
 	public List<GetAllTechnologyResponses> getAll() {
@@ -36,7 +38,10 @@ public class TechnologyManager implements TechnologyService {
 	@Override
 	public void add(CreateTechnologyRequest createTechnologyRequest) throws Exception {
 		Technology technology = this.modelMapperService.forRequest().map(createTechnologyRequest, Technology.class);
+		
 		this.technologyRepository.save(technology);
+		
+		
 
 	}
 
