@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.RequestBody;
 import kodlamaio.Kodlama.io.Devs.business.abstratcs.LanguageService;
 import kodlamaio.Kodlama.io.Devs.business.requests.CreateLanguageRequest;
@@ -34,7 +36,7 @@ public class LanguagesController {
 	
 	@PostMapping()
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public void add(@RequestBody CreateLanguageRequest createLanguageRequest) throws Exception {
+	public void add(@RequestBody @Valid CreateLanguageRequest createLanguageRequest) throws Exception {
 		this.languageService.add(createLanguageRequest);
 	}
 	

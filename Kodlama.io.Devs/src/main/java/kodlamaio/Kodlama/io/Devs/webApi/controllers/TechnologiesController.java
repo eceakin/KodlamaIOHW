@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import kodlamaio.Kodlama.io.Devs.business.abstratcs.TechnologyService;
 import kodlamaio.Kodlama.io.Devs.business.requests.CreateTechnologyRequest;
 import kodlamaio.Kodlama.io.Devs.business.requests.UpdateTechnologyRequest;
@@ -33,7 +34,7 @@ public class TechnologiesController {
 
 	@PostMapping()
 	@ResponseStatus(code=HttpStatus.CREATED)
-	public void add(@RequestBody CreateTechnologyRequest createTechnologyRequest) throws Exception {
+	public void add(@RequestBody @Valid CreateTechnologyRequest createTechnologyRequest) throws Exception {
 		this.technologyService.add(createTechnologyRequest);
 	}
 
